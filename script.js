@@ -16,7 +16,7 @@ function addMessage(msg) {
 	document.getElementById("displaySpace").appendChild(p);
 };
 
-function checkChar (e) {
+function checkChar(e) {
 	test = e.keyCode;
 	if (test === 13){
 		getMessage();
