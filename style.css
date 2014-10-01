@@ -1,5 +1,5 @@
 body {
-	background-color: #b7d1c4
+	background-color: #b7d1c4;
 }
 
 h1{
@@ -8,6 +8,16 @@ h1{
 	text-align: center;
 }
 
-div {
+#info {
 	font-family: Verdana;
+}
+
+div {
+	background-color: #40F0FF;
+	width: 400px;
+	height:200px;
+}
+
+#displaySpace {
+	color: red;
 }

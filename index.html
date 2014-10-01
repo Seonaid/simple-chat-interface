@@ -1,24 +1,24 @@
-<! DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="style.css"/>
 		<title>Friendly Chat</title>
-
-		<script src="script.js"></script>
+		<link type="text/css" rel="stylesheet" href="style.css"/>
 
 	</head>
 
 	<body>
 		<h1>Awesome stuff goes here!</h1>
 
-		<form>
-			<p>What do you have to say for yourself?</p>
-			<textarea id="msgBox" onkeyup="sayHello(value, event)"></textarea>
-			<br/>
+		<p>What do you have to say for yourself?</p>
+		<input type="text" id="msgBox" />
+		<br/>
+		<button id="myButton">Send now</button>
 
-		</form>
-
-
+		<div id="displaySpace">
+			<p>This is where we will display the conversation.</p> 
+		</div>
+		
+		<script src="script.js"></script>
 
 	</body>
 </html>

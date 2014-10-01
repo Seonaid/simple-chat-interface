@@ -1,21 +1,34 @@
-document.write('MORE different script file!');
+/*
+document.write('Awe inspiring event listener.');
 
-function inputBox (first_name) {
-//	do{
-	var newMsg = prompt('Hi, ' +first_name + '. Hit enter to send. Type end to finish.');
+function changeBackground() {
+	// body...
+	document.getElementById('displaySpace').style.backgroundColor = "#f0f0f0";
+};
+*/
 
-	document.write(newMsg);
-//	} while (newMsg != "end");
+function getMessage(){
+// window.document.getElementById('displaySpace')... append the current message to the output
+	var currMessage = document.getElementById("msgBox").value;
+	alert(currMessage);
+	addMessage(currMessage);
 
-}
+	document.getElementById("msgBox").value = ""
+/*
+	document.getElementById("displaySpace").createElement("p");
+	document.getElementById("displaySpace").appendChild(currMessage);
+*/
+};
 
-function sayHello (first_name, e) {
+function addMessage(msg){
+	var p = document.createElement("p");
+	var t = document.createTextNode(msg);
+	p.appendChild(t);
 
-	if (e.keyCode === 13) {	
-		alert('Hello, ' + first_name);
-	};
+	document.getElementById("displaySpace").appendChild(p)
+//	alert('hi!' + msg);
 
-}
+};
 
-var addMessage = function(){}
-
+document.getElementById("myButton").addEventListener("click", function(){getMessage();}, false);
+//document.getElementById('chat_area').addEventListener("click", function(){chatClicked();}, false);
