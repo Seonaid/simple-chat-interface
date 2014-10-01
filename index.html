@@ -3,14 +3,22 @@
 	<head>
 		<link type="text/css" rel="stylesheet" href="style.css"/>
 		<title>Friendly Chat</title>
-	</head>
-
-	<body>
-		<h1>Awesome stuff goes here</h1>
 
 		<script src="script.js"></script>
 
-This text came from the html file.
-		
+	</head>
+
+	<body>
+		<h1>Awesome stuff goes here!</h1>
+
+		<form>
+			<p>What do you have to say for yourself?</p>
+			<textarea id="msgBox" onkeyup="sayHello(value, event)"></textarea>
+			<br/>
+
+		</form>
+
+
+
 	</body>
 </html>
