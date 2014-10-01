@@ -17,11 +17,11 @@ function addMessage(msg) {
 };
 
 function checkChar (e) {
-	test = e.keyCode
+	test = e.keyCode;
 	if (test === 13){
 		getMessage();
 	}
-}
+};
 
 // event listener for the send button 
 document.getElementById("myButton").addEventListener("click", function(){getMessage();}, false);
