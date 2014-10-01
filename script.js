@@ -1,23 +1,12 @@
-/*
-document.write('Awe inspiring event listener.');
 
-function changeBackground() {
-	// body...
-	document.getElementById('displaySpace').style.backgroundColor = "#f0f0f0";
-};
-*/
 
 function getMessage(){
-// window.document.getElementById('displaySpace')... append the current message to the output
+// retrieve the message that is in the message box and hand it to the addMessage function
 	var currMessage = document.getElementById("msgBox").value;
 	alert(currMessage);
 	addMessage(currMessage);
 
 	document.getElementById("msgBox").value = ""
-/*
-	document.getElementById("displaySpace").createElement("p");
-	document.getElementById("displaySpace").appendChild(currMessage);
-*/
 };
 
 function addMessage(msg){
