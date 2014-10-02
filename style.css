@@ -3,21 +3,18 @@ body {
 }
 
 h1{
+	color: #5c5961;
 	font-family: Verdana;
 	font-weight: bold;
 	text-align: center;
 }
 
-#info {
-	font-family: Verdana;
-}
-
-div {
-	background-color: #40F0FF;
-	width: 400px;
-	height:200px;
-}
-
 #displaySpace {
-	color: red;
+	background-color: #d1c7b7;
+	color: #5c5961;
+	width: 400px;
+}
+
+#msgBox {
+	width: 400px;
 }

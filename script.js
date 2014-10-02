@@ -1,8 +1,13 @@
 function getMessage() {
 // retrieve the message that is in the message box and hand it to the addMessage function
 	var currMessage = document.getElementById("msgBox").value;
-	addMessage(currMessage);
-
+	
+	if (currMessage[0] != '/'){
+		addMessage(currMessage);
+	} else{
+		alert('command not available');
+	}
+	
 	document.getElementById("msgBox").value = "";
 };
 
@@ -16,7 +21,7 @@ function addMessage(msg) {
 	document.getElementById("displaySpace").appendChild(p);
 };
 
-function checkChar (e) {
+function checkChar(e) {
 	test = e.keyCode;
 	if (test === 13){
 		getMessage();
