@@ -12,11 +12,9 @@ var newText = document.createTextNode("What do you have to say for yourself, " +
 var something = document.getElementById("msgDescription").lastChild; 
 // alert(something);
 document.getElementById("msgDescription").replaceChild(newText, something);
+document.getElementById("msgBox").focus();
 
-/* echo for debugging
-var newWords = document.getElementById("msgDescription").innerHTML;
-alert(newWords);
-*/
+// end of login bit. Needs to be made into function.
 
 function getMessage() {
 // retrieve the message that is in the message box and hand it to the addMessage function
@@ -24,11 +22,12 @@ function getMessage() {
 	
 	if (validateMessage(currMessage)) {
 		addMessage(currMessage);						// adds current message to the display space
-		document.getElementById("msgBox").value = ""; //resets value of message box to ""
 /*	} else {
 		alert('Did not call addMessage.');
 		document.getElementById("msgBox").blur(); */ // removes focus from msgBox so that further enter buttons don't pop up more alerts.
 	}
+		document.getElementById("msgBox").focus();
+		document.getElementById("msgBox").value = ""; //resets value of message box to ""
 
 };
 
@@ -36,42 +35,48 @@ function addMessage(msg) {
 // create a new paragraph element, add the message to the paragraph and append to the displaySpace.
 // only gets called once the message has been retrieved and validated.
 
+if (msg === '') {
+	msg = 'in here somehow'; // debugging flow control as the listener is triggered even in alert boxes.
+}
 	var p = document.createElement("p");
 	var t = document.createTextNode(userName + ": " + msg);
 	p.appendChild(t);
-
-// 	alert("appending" + t + "to displaySpace.")
-	
 	document.getElementById("displaySpace").appendChild(p);
 };
 
 function validateMessage (msg) {
 	// body... make sure that the message doesn't start with a '/' (and that it is not blank. <== not yet implemented)
 
-// alert("Validating message! is this many characters long: " + msg.length);
-	if(msg === "\n"){
-				return false;
+	if(msg === "" || msg === '\n'){
+			warning('Nothing to say?')
+			return false;
 	} else{
 		if (msg[0] != '/'){
 			return true;
 
 		} else{
-			alert('command not available');
+			warning('Command not available')
 			return false;
 		}
 	}
 };
 
+function warning (msg) {
+	// body...
+			document.getElementById("msgBox").value = ""; //resets value of message box to ""
+			document.getElementById("msgBox").blur();
+			confirm(msg);
+			return;
+
+}
+
 function checkChar(e) {
+	// checking keystroke for enter key
 	test = e.keyCode;
 	if (test === 13){
 		getMessage();
 	}
 };
 
-// event listener for the send button 
-document.getElementById("myButton").addEventListener("click", function(){getMessage();}, false);
-
-// event listener for the textarea... listening for the enter key
-
-document.getElementById("msgBox").addEventListener("keyup", function(){checkChar(event);}, false);
+document.getElementById("myButton").addEventListener("click", function(){getMessage();}, false); // send button
+document.getElementById("msgBox").addEventListener("keyup", function(){checkChar(event);}, false); // listening for enter key
