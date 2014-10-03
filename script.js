@@ -24,12 +24,10 @@ function getMessage() {
 	
 	if (validateMessage(currMessage)) {
 		addMessage(currMessage);						// adds current message to the display space
-/*	} else {
-		alert('Did not call addMessage.');
-		document.getElementById("msgBox").blur(); */ // removes focus from msgBox so that further enter buttons don't pop up more alerts.
 	}
-		document.getElementById("msgBox").focus();
-		document.getElementById("msgBox").value = ""; //resets value of message box to ""
+	
+	document.getElementById("msgBox").focus();
+	document.getElementById("msgBox").value = ""; //resets value of message box to ""
 
 };
 
@@ -37,9 +35,6 @@ function addMessage(msg) {
 // create a new paragraph element, add the message to the paragraph and append to the displaySpace.
 // only gets called once the message has been retrieved and validated.
 
-if (msg === '') {
-	msg = 'in here somehow'; // debugging flow control as the listener is triggered even in alert boxes.
-}
 	var p = document.createElement("p");
 	var t = document.createTextNode(userName + ": " + msg);
 	p.appendChild(t);
@@ -47,30 +42,21 @@ if (msg === '') {
 };
 
 function validateMessage (msg) {
-	// body... make sure that the message doesn't start with a '/' (and that it is not blank. <== not yet implemented)
+	// make sure that the message doesn't start with a '/' (and that it is not blank. <== not yet implemented)
 
 	if(msg === "" || msg === '\n'){
-			warning('Nothing to say?')
+			alert('Nothing to say?')
 			return false;
 	} else{
 		if (msg[0] != '/'){
 			return true;
 
 		} else{
-			warning('Command not available')
+			alert('Command not available')
 			return false;
 		}
 	}
 };
-
-function warning (msg) {
-	// body...
-			document.getElementById("msgBox").value = ""; //resets value of message box to ""
-			document.getElementById("msgBox").blur();
-			alert(msg);
-			return;
-
-}
 
 function checkChar(e) {
 	// checking keystroke for enter key
@@ -80,10 +66,9 @@ function checkChar(e) {
 	}
 };
 
-/* We suspect that I need to make the listener only be working inside a scope in which the text box is in focus. 
-Something subtle going on here with the flow control that I can't get the listener to stop listening.
-Actually, I think I'll take the error messages out of the alert boxes.
+/* Changed keyup to keydown. Previous version was displaying alert, then the keydown was closing the box and returning focus to
+the textarea, which was then triggering again on keyup.
 */
 
 document.getElementById("myButton").addEventListener("click", function(){getMessage();}, false); // send button
-document.getElementById("msgBox").addEventListener("keydown", function(){checkChar(event);}, false); // listening for enter key
+document.getElementById("msgBox").addEventListener("keydown", function(event){checkChar(event);}, false); // listening for enter key
