@@ -53,8 +53,9 @@ function validateMessage (msg) {
 		} else{
 			if (msg.substring(0,6) === "/ nick"){
 				// change name
-				alert("Changing name to" + msg.substring(6,msg.length));
-				changeUser(msg.substring(6,msg.length));
+				if(confirm("Changing name to" + msg.substring(6,msg.length))){
+					changeUser(msg.substring(6,msg.length));
+				}
 				return false;
 			}
 				else{

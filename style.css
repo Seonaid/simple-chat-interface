@@ -9,14 +9,48 @@ h1{
 	text-align: center;
 }
 
+h2 {
+	color: #5c5961;
+	font-family: Verdana;
+	text-align: center;
+}
+
+.matting {
+	margin-right: auto;
+	margin-left: auto;
+	width: 60%;
+	background-color: #d1bab7;
+	width: 500px;
+}
+
+.chat-container{
+	text-align: center;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 10px 10px 5px #888888;
+
+}
+
+#msgDescription{
+	padding-top: 10px;
+	font-size: 20px;
+}
+
 #displaySpace {
+	text-align: left;
 	background-color: #d1c7b7;
 	color: #5c5961;
-	width: 400px;
+	border: 2px solid #5c5961;
+	border-radius: 5px;
 	height: 300px;
 	overflow: auto;
 }
 
 #msgBox {
+	margin-left: auto;
+	margin-right: auto;
 	width: 400px;
 }
