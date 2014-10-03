@@ -13,6 +13,8 @@ h1{
 	background-color: #d1c7b7;
 	color: #5c5961;
 	width: 400px;
+	height: 300px;
+	overflow: auto;
 }
 
 #msgBox {

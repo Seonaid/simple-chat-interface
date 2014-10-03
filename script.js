@@ -16,6 +16,8 @@ document.getElementById("msgBox").focus();
 
 // end of login bit. Needs to be made into function.
 
+
+
 function getMessage() {
 // retrieve the message that is in the message box and hand it to the addMessage function
 	var currMessage = document.getElementById("msgBox").value;
@@ -65,7 +67,7 @@ function warning (msg) {
 	// body...
 			document.getElementById("msgBox").value = ""; //resets value of message box to ""
 			document.getElementById("msgBox").blur();
-			confirm(msg);
+			alert(msg);
 			return;
 
 }
@@ -78,5 +80,10 @@ function checkChar(e) {
 	}
 };
 
+/* We suspect that I need to make the listener only be working inside a scope in which the text box is in focus. 
+Something subtle going on here with the flow control that I can't get the listener to stop listening.
+Actually, I think I'll take the error messages out of the alert boxes.
+*/
+
 document.getElementById("myButton").addEventListener("click", function(){getMessage();}, false); // send button
-document.getElementById("msgBox").addEventListener("keyup", function(){checkChar(event);}, false); // listening for enter key
+document.getElementById("msgBox").addEventListener("keydown", function(){checkChar(event);}, false); // listening for enter key
