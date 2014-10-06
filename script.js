@@ -1,5 +1,6 @@
 
 var userName = "";   // remember: userName is global in scope. In future iterations, it should be passed by a login script.
+var message = "";
 
 // Check whether user is "logged in" (in fact, at this point, just whether a userName exists)
 if (!userName) {
@@ -49,18 +50,26 @@ function validateMessage (msg) {
 	} else{
 		if (msg[0] != '/'){
 			return true;
-
 		} else{
-			if (msg.substring(0,6) === "/ nick"){
+			if (msg.substring(0,5) === "/nick"){
 				// change name
-				if(confirm("Changing name to" + msg.substring(6,msg.length))){
-					changeUser(msg.substring(6,msg.length));
+				if (msg.substring(5,msg.length) != ""){
+					if(confirm("Changing name to" + msg.substring(5,msg.length))){
+						changeUser(msg.substring(5,msg.length));
+					}
+				} else {
+					alert('Name cannot be blank.');
 				}
 				return false;
-			}
-				else{
-			alert('Command not available')
-			return false;
+/*			} else if(msg = '/ end'){
+				if(confirm("Do you want to quit?")){
+					alert('Goodbye');
+					close(); // doesn't work
+				}*/
+			} 
+			else{
+				alert('Command not available');
+				return false;
 			}
 		}
 	}
